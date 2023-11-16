@@ -5,6 +5,7 @@
 #ifndef MONOMINAL_H
 #define MONOMINAL_H
 
+#include <utility>
 #include <vector>
 #include <ostream>
 
@@ -13,10 +14,20 @@ const char subscript_nubers[10][4] = {"\u2080", "\u2081", "\u2082", "\u2083", "\
 
 class Monominal {
 public:
-    float multiplier;
+    float multiplier = 1;
     std::vector<int> x_indices;
     std::vector<int> x_powers;
-
+    Monominal() {
+        multiplier;
+    };
+    ~Monominal() {};
+    explicit Monominal(float multiplier) : multiplier(multiplier) { };
+    Monominal(int x_index, int x_power);
+    Monominal(int x_index, int x_power, float multiplier);
+    Monominal(std::vector<int> x_indices, std::vector<int> x_powers) : x_indices(std::move(x_indices)),
+    x_powers(std::move(x_powers)) { };
+    Monominal(std::vector<int> x_indices, std::vector<int> x_powers, float multiplier) : x_indices(std::move(x_indices)),
+    x_powers(std::move(x_powers)), multiplier(multiplier) { };
     void add_x(int index, int power);
     int find_x(int index) const;
 };

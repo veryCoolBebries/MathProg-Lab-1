@@ -17,9 +17,9 @@ public:
     Function partial_derivative(int index);
     std::vector<Monominal> monominals;
     std::map<int, float> Hauss();
+    double Calculate(const std::vector<int>& x_values);
 };
 
 std::ostream& operator<<(std::ostream& os, const Function& obj);
-
 
 #endif //FUNCTION_H
