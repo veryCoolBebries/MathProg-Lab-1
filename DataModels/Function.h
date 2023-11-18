@@ -14,10 +14,11 @@
 class Function {
 public:
     explicit Function(std::vector<Monominal> monominals);
-    Function partial_derivative(int index);
+    Function partial_derivative(int index) const;
     std::vector<Monominal> monominals;
-    std::map<int, float> Hauss();
-    double Calculate(const std::vector<int>& x_values);
+    std::map<int, float> hauss();
+    double calculate(const std::vector<double>&x_values) const;
+    int x_count() const;
 };
 
 std::ostream& operator<<(std::ostream& os, const Function& obj);

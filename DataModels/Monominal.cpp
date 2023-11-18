@@ -4,7 +4,7 @@
 
 #include "Monominal.h"
 
-void Monominal::add_x(int index, int power) {
+void Monominal::add_x(const int index, const int power) {
     this->x_indices.push_back(index);
     this->x_powers.push_back(power);
 }
@@ -17,14 +17,13 @@ int Monominal::find_x(int const index) const {
 }
 
 
-Monominal::Monominal(int x_index, int x_power) {
+Monominal::Monominal(const int x_index, const int x_power) {
     this->add_x(x_index, x_power);
 }
 
-Monominal::Monominal(int x_index, int x_power, float multiplier) : multiplier(multiplier){
+Monominal::Monominal(const int x_index, const int x_power, const double multiplier) : multiplier(multiplier){
     this->add_x(x_index, x_power);
 }
-
 
 
 std::ostream& operator<<(std::ostream& os, const Monominal& obj) {
