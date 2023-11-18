@@ -64,12 +64,14 @@ for (int i = 1; i < max_ind; i++) {
     }
 }
 
-double Function::Calculate(const std::vector<int> &x_values) {
+double Function::Calculate(const std::vector<int> &x_values) const {
     double result = 0;
     for(auto monominal : this->monominals) {
         double monominal_value = monominal.multiplier;
-        for(auto index : monominal.x_indices) {
-            monominal_value *= pow(x_values[index], monominal.x_powers[index]);
+
+        for(int i = 0; i < monominal.x_indices.size(); i++) {
+            monominal_value *= pow(x_values[monominal.x_indices[i]-1], monominal.x_powers[i]);
+
         }
         result += monominal_value;
     }

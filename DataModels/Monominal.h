@@ -18,7 +18,6 @@ public:
     std::vector<int> x_indices;
     std::vector<int> x_powers;
     Monominal() {
-        multiplier;
     };
     ~Monominal() {};
     explicit Monominal(float multiplier) : multiplier(multiplier) { };

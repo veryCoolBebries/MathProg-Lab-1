@@ -9,7 +9,11 @@
 #include "BaseTask.h"
 #include "../DataModels/Function.h"
 struct StepSplittingTaskCondition {
-    const Function& function;
+
+    Function& function;
+    std::vector<Function> devirvates;
+    explicit StepSplittingTaskCondition(Function& function) : function(function){};
+
 };
 struct OracleResponse {
     double func_value_in_x = 0.0;
@@ -18,6 +22,7 @@ struct OracleResponse {
 };
 class StepSplitting : BaseTask<StepSplittingTaskCondition, OracleResponse> {
 public:
+    StepSplitting(Function& function);
     OracleResponse OracleRequest(std::vector<int> x_values) override;
     void UpdateInformation(std::vector<int> x_values, OracleResponse oracleResponse) override = 0;
     std::vector<int> NextPoint(std::vector<int> x_values) override = 0;

@@ -7,7 +7,16 @@
 OracleResponse StepSplitting::OracleRequest(std::vector<int> x_values) {
     OracleResponse oracleResponse;
     for(auto value : x_values) {
-        //oracleResponse.derivatives_in_cur_x.push_back(taskCondition.function.)
+
     }
 
 }
+
+StepSplitting::StepSplitting(Function &function) : BaseTask<StepSplittingTaskCondition, OracleResponse>(
+        StepSplittingTaskCondition(function)) {
+    for () {
+
+    }
+}
+
+

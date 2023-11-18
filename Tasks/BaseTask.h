@@ -10,6 +10,8 @@
 template<typename TaskCondition, typename OracleResponse>
 class BaseTask {
 protected:
+    BaseTask(TaskCondition taskCondition) : taskCondition(taskCondition) {}
+
     TaskCondition taskCondition;
 public:
     virtual OracleResponse OracleRequest(std::vector<int> x_values) = 0;
