@@ -14,18 +14,18 @@ constexpr char subscript_nubers[10][4] = {"\u2080", "\u2081", "\u2082", "\u2083"
 
 class Monominal {
 public:
-    double multiplier = 1;
+    long double multiplier = 1.0;
     std::vector<int> x_indices;
     std::vector<int> x_powers;
     Monominal() = default;
     ~Monominal() = default;
-    explicit Monominal(const double multiplier) : multiplier(multiplier) { };
+    explicit Monominal(const long double multiplier) : multiplier(multiplier) { }
     Monominal(int x_index, int x_power);
-    Monominal(int x_index, int x_power, double multiplier);
+    Monominal(int x_index, int x_power, long double multiplier);
     Monominal(std::vector<int> x_indices, std::vector<int> x_powers) : x_indices(std::move(x_indices)),
-    x_powers(std::move(x_powers)) { };
-    Monominal(std::vector<int> x_indices, std::vector<int> x_powers, const double multiplier) : x_indices(std::move(x_indices)),
-    x_powers(std::move(x_powers)), multiplier(multiplier) { };
+    x_powers(std::move(x_powers)) { }
+    Monominal(std::vector<int> x_indices, std::vector<int> x_powers, const long double multiplier) : x_indices(std::move(x_indices)),
+    x_powers(std::move(x_powers)), multiplier(multiplier) { }
     void add_x(int index, int power);
     int find_x(int index) const;
 };

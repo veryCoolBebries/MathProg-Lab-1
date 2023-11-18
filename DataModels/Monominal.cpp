@@ -21,7 +21,7 @@ Monominal::Monominal(const int x_index, const int x_power) {
     this->add_x(x_index, x_power);
 }
 
-Monominal::Monominal(const int x_index, const int x_power, const double multiplier) : multiplier(multiplier){
+Monominal::Monominal(const int x_index, const int x_power, const long double multiplier) : multiplier(multiplier){
     this->add_x(x_index, x_power);
 }
 
