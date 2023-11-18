@@ -16,6 +16,17 @@ int Monominal::find_x(int const index) const {
     return -1;
 }
 
+
+Monominal::Monominal(int x_index, int x_power) {
+    this->add_x(x_index, x_power);
+}
+
+Monominal::Monominal(int x_index, int x_power, float multiplier) : multiplier(multiplier){
+    this->add_x(x_index, x_power);
+}
+
+
+
 std::ostream& operator<<(std::ostream& os, const Monominal& obj) {
     if (obj.multiplier > 0) {
         os << "+";

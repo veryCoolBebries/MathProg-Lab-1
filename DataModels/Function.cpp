@@ -3,7 +3,7 @@
 //
 
 #include "Function.h"
-
+#include "math.h"
 Function::Function(std::vector<Monominal> monominals) {
     this->monominals = std::move(monominals);
 }
@@ -62,6 +62,18 @@ for (int i = 1; i < max_ind; i++) {
             }
         }
     }
+}
+
+double Function::Calculate(const std::vector<int> &x_values) {
+    double result = 0;
+    for(auto monominal : this->monominals) {
+        double monominal_value = monominal.multiplier;
+        for(auto index : monominal.x_indices) {
+            monominal_value *= pow(x_values[index], monominal.x_powers[index]);
+        }
+        result += monominal_value;
+    }
+    return result;
 }
 
 std::ostream& operator<<(std::ostream& os, const Function& obj) {
